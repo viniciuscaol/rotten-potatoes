@@ -1,7 +1,7 @@
 version: '3.8'
 
 networks: 
-  questao07:
+  rotten-potatoes-network:
     driver: bridge
 
 services:
@@ -14,7 +14,18 @@ services:
       MONGO_INITDB_ROOT_USERNAME: mongouser
       MONGO_INITDB_ROOT_PASSWORD: mongopwd
     networks:
-      - questao07
-
----
-
+      - rotten-potatoes-network
+  
+  rotten-potatoes:
+    image: viniciuscaol/rotten-potatoes:v1
+    container_name: rotten-potatoes
+    ports:
+      - 5000:5000
+    environment:
+      MONGODB_DB: admin
+      MONGODB_HOST: mongodb
+      MONGODB_PORT: 27017
+      MONGODB_USERNAME: mongouser
+      MONGODB_PASSWORD: mongopwd
+    networks:
+      - rotten-potatoes-network
