@@ -35,7 +35,7 @@ pipeline {
                 withKubeConfig ([credentialsId: 'kubeconfig']) {
                     sh 'sed -i "s/{{tag}}/$tag_version/g" ./k8s/api/deployment.yml'
                     // sh 'kubectl apply -f ./k8s/ -R'
-                    kubernetesDeploy(configs: '**/k8s/**')
+                    kubernetesDeploy(configs: '**/k8s/**', kubeconfigId: 'kubeconfig')
                 }
             }
         }
