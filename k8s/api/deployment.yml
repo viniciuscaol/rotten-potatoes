@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: movies
-        image: viniciuscaol/rotten-potatoes:v4-teste
+        image: viniciuscaol/rotten-potatoes:{{tag}}
         ports:
           - containerPort: 5000
         env:
