@@ -31,10 +31,10 @@ pipeline {
             environment {
                 tag_version = "${env.BUILD_ID}"
             }
-            steps{
-                withKubeconfig ([credentialslsId: 'kubeconfig']){
+            steps {
+                withKubeConfig ([credentialslsId: 'kubeconfig']){
                     sh 'sed -i "s/{{tag}}/$tag_version" ./k8s/api/deployment.yml'
-                    sh 'kubectl apply -f ./k8s -r'
+                    sh 'kubectl apply -f ./k8s -R'
                 }
             }
         }
