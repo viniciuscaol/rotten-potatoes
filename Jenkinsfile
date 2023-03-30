@@ -11,7 +11,7 @@ pipeline {
         stage('Build Image') {
             steps{
                script {
-                    dockerapp = docker.build("viniciuscaol/rotten-potatoes:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
+                    dockerapp = docker.build("viniciuscaol/rotten-potatoes:V1.0.${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
                }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
                script {
                     docker.withRegistry('https://registry.hub.docker.com', "dockerhub") {
                         dockerapp.push('latest')
-                        dockerapp.push("${env.BUILD_ID}")
+                        dockerapp.push("V1.0.${env.BUILD_ID}")
                     }
                }
             }
