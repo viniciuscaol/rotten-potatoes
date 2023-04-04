@@ -14,5 +14,8 @@ spec:
       containers:
       - name: prometheus
         image: bitnami/prometheus:2.43.0
+        volumeMounts:
+          - mountPath: ./prometheus.yml
+            name: /etc/prometheus/prometheus.yml
         ports:
           - containerPort: 9090
