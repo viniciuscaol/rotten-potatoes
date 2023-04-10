@@ -8,6 +8,10 @@ spec:
       app: mongodb
   template:
     metadata:
+      annotations:
+        promethues.io/scrape: "true"
+        promethues.io/path: /metrics
+        promethues.io/port: "9216"
       labels:
         app: mongodb
     spec:
