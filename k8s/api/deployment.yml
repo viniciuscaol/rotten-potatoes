@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: movies
 spec:
-  replicas: 3
+  replicas: 10
   selector:
     matchLabels:
       app: movies
@@ -12,7 +12,7 @@ spec:
       annotations:
         promethues.io/scrape: "true"
         promethues.io/path: /metrics
-        promethues.io/port: "5000"
+        promethues.io/port: "80"
       labels:
         app: movies
     spec:
