@@ -12,7 +12,7 @@ spec:
       annotations:
         promethues.io/scrape: "true"
         promethues.io/path: /metrics
-        promethues.io/port: "5000"
+        promethues.io/port: "9090"
       labels:
         app: movies
     spec:
