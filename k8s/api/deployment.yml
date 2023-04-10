@@ -11,7 +11,7 @@ spec:
     metadata:
       annotations:
         promethues.io/scrape: "true"
-        promethues.io/path: /metrics
+        promethues.io/path: "/metrics"
         promethues.io/port: "5000"
       labels:
         app: movies
