@@ -9,12 +9,12 @@ spec:
       app: movies
   template:
     metadata:
+      labels:
+        app: movies
       annotations:
         promethues.io/scrape: "true"
         promethues.io/path: "/metrics"
         promethues.io/port: "5000"
-      labels:
-        app: movies
     spec:
       containers:
       - name: movies
